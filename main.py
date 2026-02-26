@@ -1,0 +1,20 @@
+from dotenv import load_dotenv
+import os
+from control.main_controller import Main_Controller
+from view.main_view import Main_view
+
+db_config = {
+    "host": os.getenv("DB_HOST", "localhost"),
+    "user": os.getenv("DB_USER"),
+    "password": os.getenv("DB_PASSWORD"),
+    "database": os.getenv("DB_NAME")
+}
+
+def main():
+    view_principal = Main_view()
+    controller_principal = Main_Controller(view_principal, db_config)
+    view_principal.controller = controller_principal
+    view_principal.run()
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,43 @@
+"""
+create database if not exists projeto_final_poo;
+use projeto_final_poo;
+
+create table if not exists aluno
+(
+	id int not null auto_increment primary key,
+	nome varchar(100) not null,
+	turma varchar(50) not null l
+);
+
+create table if not exists pedido
+(
+	id int not null auto_increment primary key,
+	data timestamp default current_timestamp,
+	valor decimal(10,2) not null,
+	status_pedido enum('Preparando', 'Chegando', 'Entregado')
+);
+
+create table if not exists contribuicao
+(
+	id int not null auto_increment primary key,
+	id_aluno int not null,
+	id_pedido int not null,
+	valor decimal(10,2) not null,
+	pago not null boolean,
+	constraint fk_id_aluno foreign key (id_aluno) references aluno(id) on delete cascade,
+	constraint fk_id_pedido foreign key (id_pedido) references pedido(id) on delete cascade
+);
+
+create table if not exists sabor
+(
+	id not null auto_increment primary key,
+	nome varchar(50) not null
+);
+
+create table if not exists sugestao_sabor
+(
+	id_aluno int not null,
+	id_sabor int not null,
+	constraint fkk_id_aluno foreign key (id_aluno) references aluno(id) on delete cascade,
+	constraint fk_id_sabor foreign key (id_sabor) references sabor(id) on delete cascade
+);
