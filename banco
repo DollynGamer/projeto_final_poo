@@ -6,15 +6,15 @@ create table if not exists aluno
 (
 	id int not null auto_increment primary key,
 	nome varchar(100) not null,
-	turma varchar(50) not null l
+	turma varchar(50) not null
 );
 
 create table if not exists pedido
 (
 	id int not null auto_increment primary key,
-	data timestamp default current_timestamp,
 	valor decimal(10,2) not null,
-	status_pedido enum('Preparando', 'Chegando', 'Entregado')
+	status_pedido enum('Preparando', 'Chegando', 'Entregado'),
+	data timestamp default current_timestamp
 );
 
 create table if not exists contribuicao
@@ -23,7 +23,7 @@ create table if not exists contribuicao
 	id_aluno int not null,
 	id_pedido int not null,
 	valor decimal(10,2) not null,
-	pago not null boolean,
+	pago boolean not null,
 	constraint fk_id_aluno foreign key (id_aluno) references aluno(id) on delete cascade,
 	constraint fk_id_pedido foreign key (id_pedido) references pedido(id) on delete cascade
 );

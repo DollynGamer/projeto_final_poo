@@ -1,9 +1,12 @@
 from model.dao.aluno_dao import Aluno_DAO
 from model.dao.pedido_dao import Pedido_DAO
+from model.dao.contribuicao_dao import Contribuicao_DAO
 from control.aluno_controller import Aluno_Controller
 from control.pedido_controller import Pedido_Controller
+from control.contribuicao_controller import Contribuicao_Controller
 from view.aluno_view import Aluno_View
 from view.pedido_view import Pedido_View
+from view.contribuicao_view import Contribuicao_View
 
 class Main_Controller:
     def __init__(self, main_view, db_config):
@@ -20,4 +23,14 @@ class Main_Controller:
         dao = Pedido_DAO(self.db_config)
         view = Pedido_View()
         control = Pedido_Controller(dao, view)
+        view.run()
+
+    def exibir_contribuicao(self):
+        con_dao = Contribuicao_DAO(self.db_config)
+        aluno_dao = Aluno_DAO(self.db_config)
+        pedido_dao = Pedido_DAO(self.db_config)
+        view = Contribuicao_View()
+        control = Contribuicao_Controller(con_dao, aluno_dao, pedido_dao, view)
+        control.list_related_aluno()
+        control.list_related_pedido()
         view.run()

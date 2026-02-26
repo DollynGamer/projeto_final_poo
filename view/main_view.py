@@ -19,6 +19,7 @@ class Main_view:
         menu_cadastros = tk.Menu(barra_menu, tearoff=0)
         menu_cadastros.add_command(label="Alunos", command=self._abrir_aluno)
         menu_cadastros.add_command(label="Pedidos", command=self._abrir_pedido)
+        menu_cadastros.add_command(label="Contribuição", command=self._abrir_contribuicao)
         menu_cadastros.add_separator()
         menu_cadastros.add_command(label="Sair", command=self.root.quit)
         
@@ -32,6 +33,10 @@ class Main_view:
     def _abrir_pedido(self):
         if self.controller:
             self.controller.exibir_pedido()
+
+    def _abrir_contribuicao(self):
+        if self.controller:
+            self.controller.exibir_contribuicao()
 
     def run(self):
         self.root.mainloop()
