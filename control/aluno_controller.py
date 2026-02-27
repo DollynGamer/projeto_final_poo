@@ -1,5 +1,4 @@
 from model.aluno import Aluno
-from model.dao.aluno_dao import Aluno_DAO
 
 class Aluno_Controller:
     def __init__(self, dao, view):

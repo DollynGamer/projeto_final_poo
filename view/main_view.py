@@ -21,6 +21,7 @@ class Main_view:
         menu_cadastros.add_command(label="Pedidos", command=self._abrir_pedido)
         menu_cadastros.add_command(label="Contribuição", command=self._abrir_contribuicao)
         menu_cadastros.add_command(label="Sabores", command=self._abrir_sabor)
+        menu_cadastros.add_command(label="Sugestões", command=self._abrir_sugestao)
         menu_cadastros.add_separator()
         menu_cadastros.add_command(label="Sair", command=self.root.quit)
         
@@ -42,6 +43,10 @@ class Main_view:
     def _abrir_sabor(self):
         if self.controller:
             self.controller.exibir_sabor()
+
+    def _abrir_sugestao(self):
+        if self.controller:
+            self.controller.exibir_sugestao()
 
     def run(self):
         self.root.mainloop()

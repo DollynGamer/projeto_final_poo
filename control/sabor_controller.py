@@ -1,5 +1,4 @@
 from model.sabor import Sabor
-from model.dao.sabor_dao import Sabor_DAO
 
 class Sabor_Controller:
     def __init__(self, dao, view):

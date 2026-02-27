@@ -1,5 +1,4 @@
 from model.pedido import Pedido
-from model.dao.pedido_dao import Pedido_DAO
 
 class Pedido_Controller:
     def __init__(self, dao, view):
