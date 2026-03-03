@@ -85,7 +85,7 @@ class Aluno_View:
         self.controller.update_aluno()
         self._acao_listar()
 
-    def get_id(self, operacao=""):
+    def get_id(self):
         val = self.var_id.get()
         return int(val) if val else None
     

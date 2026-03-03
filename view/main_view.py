@@ -36,8 +36,7 @@ class Main_view:
         ]
 
         for texto, func in botoes:
-            tk.Button(centro_frame, text=texto, font=("Arial", 14, "bold"), 
-                      width=20, height=2, command=func).pack(pady=10)
+            tk.Button(centro_frame, text=texto, font=("Arial", 14, "bold"), width=20, height=2, command=func, bg="#ddbef1").pack(pady=10)
 
         """
         menu antigo:
